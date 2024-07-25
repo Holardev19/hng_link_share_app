@@ -5,10 +5,8 @@ import github from "@/app/public/github.svg";
 import youtube from "@/app/public/youtube.svg";
 import linkedin from "@/app/public/linkedin.svg";
 import devTo from "@/app/public/devTo.svg";
-import codeWars from "@/app/public/codewars.svg";
 import freeCode from "@/app/public/freeCode.svg";
 import gitLab from "@/app/public/gitLab.svg";
-import hashNode from "@/app/public/hashnode.svg";
 import stackOverflow from "@/app/public/stackOverflow.svg";
 import Select from "react-select";
 import LinkBlack from "@/app/public/LinkBlack.svg";
@@ -88,10 +86,8 @@ const options = [
 	{ value: "Youtube", label: "Youtube", icon: youtube },
 	{ value: "Linkedin", label: "LinkedIn", icon: linkedin },
 	{ value: "DevTo", label: "DevTo", icon: devTo },
-	{ value: "CodeWars", label: "CodeWars", icon: codeWars },
 	{ value: "FreeCodeCamp", label: "FreeCodeCamp", icon: freeCode },
 	{ value: "Gitlab", label: "GitLab", icon: gitLab },
-	{ value: "HashNode", label: "HashNode", icon: hashNode },
 	{ value: "StackOverflow", label: "StackOverflow", icon: stackOverflow },
 ];
 
