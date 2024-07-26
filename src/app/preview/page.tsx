@@ -1,10 +1,8 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import ProfilePic from "@/app/public/ProfilePic.svg";
-import WhiteGit from "@/app/public/WhiteGit.svg";
-import ArrowRight from "@/app/public/ArrowRight.svg";
-import WhiteYoutube from "@/app/public/WhiteYoutube.svg";
-import WhiteLinkedin from "@/app/public/WhiteLinkedin.svg";
+import LinkDisplay from "../components/common/LinkDisplay";
 import Link from "next/link";
 
 const PreviewPage: React.FC = () => {
@@ -47,72 +45,8 @@ const PreviewPage: React.FC = () => {
 				</div>
 
 				{/* The links */}
-				<div className="flex flex-col gap-5 items-center justify-center ">
-					<div className="flex items-center justify-between bg-[#1a1a1a] w-[237px] h-[44px] p-3 rounded-lg gap-3">
-						<div className="flex items-center justify-center gap-3">
-							<Image
-								src={WhiteGit}
-								alt="github"
-								width={24}
-								height={24}
-							/>
-							<p className="text-[#fff] font-normal">GitHub</p>
-						</div>
 
-						<div>
-							<Image
-								src={ArrowRight}
-								alt="arrow"
-								width={16}
-								height={16}
-							/>
-						</div>
-					</div>
-
-					{/* Youtube */}
-					<div className="flex items-center justify-between bg-[#EE3939] w-[237px] h-[44px] p-3 rounded-lg gap-3">
-						<div className="flex items-center justify-center gap-3">
-							<Image
-								src={WhiteYoutube}
-								alt="github"
-								width={24}
-								height={24}
-							/>
-							<p className="text-[#fff] font-normal">Youtube</p>
-						</div>
-
-						<div>
-							<Image
-								src={ArrowRight}
-								alt="arrow"
-								width={16}
-								height={16}
-							/>
-						</div>
-					</div>
-
-					{/* LinkedIn */}
-					<div className="flex items-center justify-between bg-[#2D68FF] w-[237px] h-[44px] p-3 rounded-lg gap-3">
-						<div className="flex items-center justify-center gap-3">
-							<Image
-								src={WhiteLinkedin}
-								alt="github"
-								width={24}
-								height={24}
-							/>
-							<p className="text-[#fff] font-normal">LinkedIn</p>
-						</div>
-
-						<div>
-							<Image
-								src={ArrowRight}
-								alt="arrow"
-								width={16}
-								height={16}
-							/>
-						</div>
-					</div>
-				</div>
+				<LinkDisplay />
 			</section>
 		</div>
 	);

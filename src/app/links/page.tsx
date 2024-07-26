@@ -9,6 +9,8 @@ import WhiteGit from "@/app/public/WhiteGit.svg";
 import ArrowRight from "@/app/public/ArrowRight.svg";
 import WhiteYoutube from "@/app/public/WhiteYoutube.svg";
 import WhiteLinkedin from "@/app/public/WhiteLinkedin.svg";
+import { useFetchLinks } from "@/app/hooks/useFetchLinks";
+import { saveLinksToFirestore } from "@/app/utils/fireStoreUtils";
 import { auth, firestore } from "@/config/firebaseConfig";
 import {
 	collection,
@@ -59,27 +61,11 @@ const LinksPage: React.FC = () => {
 	};
 
 	const handleSave = async () => {
-		try {
-			for (const link of linkCards) {
-				if (link.platform && link.url) {
-					const newLink = {
-						platform: link.platform,
-						url: link.url,
-						userId: userId,
-					};
-
-					await setDoc(
-						doc(firestore, `users/${userId}/links/${Date.now()}`),
-						newLink
-					);
-				}
-				// Extract props from LinkCard component
-
-				// Save each link to Firestore
-			}
-			console.log("Links saved to Firestore");
-		} catch (error) {
-			console.error("Error saving links to Firestore: ", error);
+		const userId = auth.currentUser?.uid || "";
+		if (userId) {
+			await saveLinksToFirestore(userId, linkCards);
+		} else {
+			console.error("User is not authenticated");
 		}
 	};
 
