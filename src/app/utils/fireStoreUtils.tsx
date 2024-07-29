@@ -1,6 +1,9 @@
-// utils/firestoreUtils.ts
+"use client";
+
+// uils/firestoreUtils.ts
 import { collection, addDoc } from "firebase/firestore";
 import { firestore } from "@/config/firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
 
 export const saveLinksToFirestore = async (
 	userId: string,
@@ -15,9 +18,14 @@ export const saveLinksToFirestore = async (
 					userId: userId,
 				};
 
-				await addDoc(
+				const docRef = await addDoc(
 					collection(firestore, `users/${userId}/links`),
 					newLink
+				);
+				console.log("Saving to document ID:", docRef.id);
+				console.log(
+					"Saving to document path:",
+					`users/${userId}/links/${docRef.id}`
 				);
 			}
 		}
